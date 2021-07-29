@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  background-color: $primary;
+  padding: 20px 40px;
+  color: $secondary;
+  &-brand {
+    font-family: "Gowun Batang", serif;
+    font-weight: 700;
+    font-size: 2.5em;
+  }
+}

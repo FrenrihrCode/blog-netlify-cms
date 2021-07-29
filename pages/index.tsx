@@ -1,6 +1,9 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
+import { Tag } from "../interfaces/tag.interface";
+import { getAllTags } from "../lib/utils/tags";
 
-export default function Home() {
+export default function Home({tags}: { tags: Tag[] }) {
   return (
     <>
       <Head>
@@ -15,3 +18,14 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const tags = getAllTags();
+  const posts: [] = [];
+  return {
+    props: {
+      posts,
+      tags,
+    },
+  };
+};
