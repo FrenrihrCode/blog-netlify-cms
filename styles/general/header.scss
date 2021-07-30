@@ -1,8 +1,9 @@
 .header {
   display: flex;
-  background-color: $primary;
-  padding: 20px 40px;
-  color: $secondary;
+  width: 100%;
+  max-width: $pc;
+  padding: 20px 0;
+  color: $accent;
   &-brand {
     font-family: "Gowun Batang", serif;
     font-weight: 700;
