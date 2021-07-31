@@ -1,0 +1,49 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  color: $white;
+  &-img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 3.5px solid $white;
+  }
+  &-title {
+    padding: 10px 0;
+    font-weight: 700;
+    font-size: 1.5em;
+  }
+  &-dec {
+    font-weight: 300;
+    font-size: 1.2em;
+  }
+  &-menu {
+    padding: 20px 0;
+    &_item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      font-weight: 700;
+      position: relative;
+      span {
+        position: absolute;
+        left: 10px;
+      }
+      a {
+        display: inline-block;
+        width: 100%;
+        line-height: 30px;
+        padding-left: 35px;
+        min-height: 30px;
+        z-index: 1;
+        border-bottom: 2px solid $primary;
+        &:hover {
+          border-color: $white;
+        }
+      }
+    }
+  }
+}

@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export const Header = ({ title }: { title: string }) => {
   return (
-    <header>
+    <header className="header">
       <Link href="/">
-        <a>{title}</a>
+        <a className="header-brand">{title}Blog</a>
       </Link>
     </header>
   );
