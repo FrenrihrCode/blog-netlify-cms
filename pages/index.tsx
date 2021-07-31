@@ -16,7 +16,9 @@ export default function Home({ tags }: { tags: Tag[] }) {
       </Head>
       <div className={Styles.home}>
         <div className={Styles["home-content"]}>
-          <h1>Publicaciones más recientes</h1>
+          <h1 className={Styles["home-content_title"]}>
+            Publicaciones más recientes
+          </h1>
         </div>
         <div className={Styles["home-tags"]}>
           <h4 className={Styles["home-tags_title"]}>

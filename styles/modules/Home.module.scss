@@ -1,8 +1,16 @@
+@import "../theme";
+
 .home {
   display: flex;
   width: 100%;
   &-content {
     flex: 1;
+    padding: 0 20px;
+    &_title {
+      padding: 10px;
+      border-radius: 15px;
+      background-color: $secondary;
+    }
   }
   &-tags {
     width: 240px;

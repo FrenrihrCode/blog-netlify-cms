@@ -1,0 +1,20 @@
+@import "../theme";
+
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: $secondary;
+  &-title {
+    font-size: 32px;
+    font-weight: 700;
+    border-bottom: 2px solid $white;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
