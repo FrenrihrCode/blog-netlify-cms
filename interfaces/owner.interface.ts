@@ -4,3 +4,9 @@ export interface Owner {
   desc: string;
   img: string;
 }
+
+export interface OwnerAbout {
+  intro: string;
+  desc: string;
+  extra?: string;
+}
