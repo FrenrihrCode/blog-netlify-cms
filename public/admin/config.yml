@@ -2,6 +2,13 @@ backend:
   name: test-repo
   branch: main
 media_folder: public/img
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "ffbaed068f811fb8f504"
+  settings:
+    autoFilename: true
+    defaultOperations: "/resize/900x400/"
 locale: es
 slug:
   encoding: "ascii"
@@ -65,5 +72,10 @@ collections:
           widget: "datetime",
           required: true,
         }
-      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown", required: true }
