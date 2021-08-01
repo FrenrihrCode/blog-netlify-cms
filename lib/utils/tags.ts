@@ -4,7 +4,7 @@ import YAML from "yaml";
 import { Tag } from "../../interfaces/tag.interface";
 import { isObject } from "./validators";
 
-const pathTags = join(process.cwd(), "lib", "meta", "tags.yml");
+const pathTags = join(process.cwd(), "meta", "tags.yml");
 
 const fileTags = fs.readFileSync(pathTags, "utf8");
 
