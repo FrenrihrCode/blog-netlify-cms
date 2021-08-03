@@ -7,9 +7,7 @@
     flex: 1;
     padding: 0 20px;
     &_title {
-      padding: 10px;
-      border-radius: 15px;
-      background-color: $secondary;
+      margin-bottom: 20px;
     }
   }
   &-tags {
@@ -26,5 +24,22 @@
       flex-wrap: wrap;
       list-style: none;
     }
+  }
+}
+
+.post {
+  border-radius: 15px;
+  background-color: $secondary;
+  overflow: hidden;
+  margin-bottom: 25px;
+  &:last-child {
+    margin-bottom: 10px;
+  }
+  &-body {
+    padding: 10px;
+  }
+  &-title {
+    font-size: 24px;
+    font-weight: 700;
   }
 }

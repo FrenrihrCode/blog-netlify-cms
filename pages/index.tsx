@@ -1,12 +1,15 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { TagIcon } from "../components/icons";
+import { Post } from "../interfaces/post.interface";
 import { Tag } from "../interfaces/tag.interface";
+import { getRecentPosts } from "../lib/utils/posts";
 import { getAllTags } from "../lib/utils/tags";
 import Styles from "../styles/modules/Home.module.scss";
 
-export default function Home({ tags }: { tags: Tag[] }) {
+export default function Home({ posts, tags }: { posts: Post[]; tags: Tag[] }) {
   return (
     <>
       <Head>
@@ -19,6 +22,41 @@ export default function Home({ tags }: { tags: Tag[] }) {
           <h1 className={Styles["home-content_title"]}>
             Publicaciones más recientes
           </h1>
+          <div className={Styles["home-content_list"]}>
+            {posts.map((post) => (
+              <div className={Styles.post} key={post.slug}>
+                <div className={Styles["post-img"]}>
+                  <Link href={"/posts/" + post.slug}>
+                    <a>
+                      <Image
+                        src={
+                          post.thumbnail
+                            ? post.thumbnail
+                            : "/img/defaultPost.png"
+                        }
+                        alt={post.title}
+                        width={900}
+                        height={400}
+                        layout="responsive"
+                      ></Image>
+                    </a>
+                  </Link>
+                </div>
+                <div className={Styles["post-body"]}>
+                  <div className={Styles["post-tags"]}>
+                    {post.tag.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                  <Link href={"/posts/" + post.slug}>
+                    <a className={Styles["post-title"]}>{post.title}</a>
+                  </Link>
+                  <p>{post.header}</p>
+                  <span>{post.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className={Styles["home-tags"]}>
           <h4 className={Styles["home-tags_title"]}>
@@ -42,7 +80,9 @@ export default function Home({ tags }: { tags: Tag[] }) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const tags = getAllTags();
-  const posts: [] = [];
+  const posts = getRecentPosts();
+  console.log(posts);
+
   return {
     props: {
       posts,

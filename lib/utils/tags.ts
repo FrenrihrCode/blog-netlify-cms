@@ -10,7 +10,6 @@ const fileTags = fs.readFileSync(pathTags, "utf8");
 
 export const getAllTags = (): Tag[] => {
   const parsedTags = YAML.parse(fileTags);
-  console.log(parsedTags);
   if (parsedTags && isObject(parsedTags)) {
     const tags = parsedTags["tags"];
     if (Array.isArray(tags)) {
