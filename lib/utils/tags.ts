@@ -4,13 +4,12 @@ import YAML from "yaml";
 import { Tag } from "../../interfaces/tag.interface";
 import { isObject } from "./validators";
 
-const pathTags = join(process.cwd(), "lib", "meta", "tags.yml");
+const pathTags = join(process.cwd(), "meta", "tags.yml");
 
 const fileTags = fs.readFileSync(pathTags, "utf8");
 
 export const getAllTags = (): Tag[] => {
   const parsedTags = YAML.parse(fileTags);
-  console.log(parsedTags);
   if (parsedTags && isObject(parsedTags)) {
     const tags = parsedTags["tags"];
     if (Array.isArray(tags)) {
@@ -18,6 +17,15 @@ export const getAllTags = (): Tag[] => {
     }
   }
   return [];
+};
+
+export const generateTagMap = (): { [key: string]: string } => {
+  const tags = getAllTags();
+  let result: { [key: string]: string } = {};
+  for (const tag of tags) {
+    result[tag.slug] = tag.name;
+  }
+  return result;
 };
 /*
 const tagMap: { [key: string]: TagContent } = generateTagMap();

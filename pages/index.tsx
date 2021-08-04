@@ -1,12 +1,21 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { TagIcon } from "../components/icons";
-import { Tag } from "../interfaces/tag.interface";
-import { getAllTags } from "../lib/utils/tags";
+import { Post } from "../interfaces/post.interface";
+import { getRecentPosts } from "../lib/utils/posts";
+import { generateTagMap } from "../lib/utils/tags";
 import Styles from "../styles/modules/Home.module.scss";
+import { Calendar } from "../components/icons/Calendar";
 
-export default function Home({ tags }: { tags: Tag[] }) {
+export default function Home({
+  posts,
+  tags,
+}: {
+  posts: Post[];
+  tags: { [key: string]: string };
+}) {
   return (
     <>
       <Head>
@@ -19,6 +28,50 @@ export default function Home({ tags }: { tags: Tag[] }) {
           <h1 className={Styles["home-content_title"]}>
             Publicaciones más recientes
           </h1>
+          <div className={Styles["home-content_list"]}>
+            {posts.map((post) => (
+              <div className={Styles.post} key={post.slug}>
+                <div className={Styles["post-img"]}>
+                  <Link href={"/posts/" + post.slug}>
+                    <a>
+                      <Image
+                        src={
+                          post.thumbnail
+                            ? post.thumbnail
+                            : "/img/defaultPost.jpg"
+                        }
+                        alt={post.title}
+                        width={800}
+                        height={350}
+                        layout="responsive"
+                      ></Image>
+                    </a>
+                  </Link>
+                </div>
+                <div className={Styles["post-body"]}>
+                  <div className={Styles["post-tags"]}>
+                    {post.tags.map((tag) => (
+                      <Link href={`/tags/${tag}`} key={tag}>
+                        <a className="btn btn-primary btn-tag btn-tag_outline">
+                          <span>{tags[tag] || "General"}</span>
+                        </a>
+                      </Link>
+                    ))}
+                  </div>
+                  <Link href={"/posts/" + post.slug}>
+                    <a className={Styles["post-title"]}>{post.title}</a>
+                  </Link>
+                  <p className={Styles["post-excerpt"]}>{post.header}</p>
+                  <p className={Styles["post-date"]}>
+                    <span>
+                      <Calendar color={"white"} size={16}></Calendar>
+                    </span>
+                    {post.date}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className={Styles["home-tags"]}>
           <h4 className={Styles["home-tags_title"]}>
@@ -26,10 +79,10 @@ export default function Home({ tags }: { tags: Tag[] }) {
             TAGS
           </h4>
           <ul className={Styles["home-tags_list"]}>
-            {tags.map((tag, index) => (
-              <li key={`${index}-${tag.slug}`}>
-                <Link href={`/tags/${tag.slug}`}>
-                  <a className="btn btn-primary btn-tag">{tag.name}</a>
+            {Object.keys(tags).map((tag, index) => (
+              <li key={`${index}-${tag}`}>
+                <Link href={`/tags/${tag}`}>
+                  <a className="btn btn-primary btn-tag">{tags[tag]}</a>
                 </Link>
               </li>
             ))}
@@ -41,12 +94,13 @@ export default function Home({ tags }: { tags: Tag[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const tags = getAllTags();
-  const posts: [] = [];
+  const mappedTags = generateTagMap();
+  const posts = getRecentPosts();
+
   return {
     props: {
       posts,
-      tags,
+      tags: mappedTags,
     },
   };
 };

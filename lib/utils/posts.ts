@@ -7,7 +7,9 @@ const postsDirectory = join(process.cwd(), "content", "blogPosts");
 
 export const getAllPostsSlug = () => {
   const slugs = fs.readdirSync(postsDirectory);
-  return slugs.map((s) => s.replace(/\.md$/, ""));
+  return slugs
+    .map((s) => s.replace(/\.md$/, ""))
+    .sort((a, b) => (a > b ? -1 : 1));
 };
 
 export const getPostBySlug = (slug: string): Post => {
@@ -15,12 +17,17 @@ export const getPostBySlug = (slug: string): Post => {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   return {
+    slug,
     title: data["title"],
     header: data["header"],
-    date: data["date"],
+    date: new Date(data["date"]).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }),
     content,
-    tag: data["tags"],
-    thumbnail: data["thumbnail"] || "/img/default.jpg",
+    tags: data["tags"],
+    thumbnail: data["thumbnail"] || "",
   };
 };
 
