@@ -15,5 +15,12 @@
     letter-spacing: 1px;
     margin-bottom: 10px;
     margin-right: 5px;
+    &_outline {
+      color: $white;
+      border: 1px solid $white;
+      &:hover {
+        border-color: $accent;
+      }
+    }
   }
 }

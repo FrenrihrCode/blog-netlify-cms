@@ -36,10 +36,33 @@
     margin-bottom: 10px;
   }
   &-body {
-    padding: 10px;
+    padding: 20px;
+  }
+  &-excerpt,
+  &-title {
+    margin-bottom: 8px;
+  }
+  &-tags {
+    display: flex;
   }
   &-title {
-    font-size: 24px;
+    display: inline-block;
+    font-size: 32px;
+    line-height: 32px;
     font-weight: 700;
+    transition: text-indent 250ms ease-in;
+    &:hover {
+      text-decoration: underline;
+      text-indent: 5px;
+    }
+  }
+  &-date {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    font-size: 14px;
+    span {
+      margin-right: 7.5px;
+    }
   }
 }

@@ -4,6 +4,6 @@ export interface Post {
   header: string;
   date: string;
   content: string;
-  tag: string[];
+  tags: string[];
   thumbnail?: string;
 }

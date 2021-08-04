@@ -18,6 +18,15 @@ export const getAllTags = (): Tag[] => {
   }
   return [];
 };
+
+export const generateTagMap = (): { [key: string]: string } => {
+  const tags = getAllTags();
+  let result: { [key: string]: string } = {};
+  for (const tag of tags) {
+    result[tag.slug] = tag.name;
+  }
+  return result;
+};
 /*
 const tagMap: { [key: string]: TagContent } = generateTagMap();
 

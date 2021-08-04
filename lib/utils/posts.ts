@@ -26,15 +26,15 @@ export const getPostBySlug = (slug: string): Post => {
       day: "numeric",
     }),
     content,
-    tag: data["tags"],
-    thumbnail: data["thumbnail"] || "/img/default.jpg",
+    tags: data["tags"],
+    thumbnail: data["thumbnail"] || "",
   };
 };
 
 export const getRecentPosts = (): Post[] => {
   const allPostsSlug = getAllPostsSlug();
   if (allPostsSlug.length > 0) {
-    const allPostsSlugLimited = allPostsSlug.slice(0, 2);
+    const allPostsSlugLimited = allPostsSlug.slice(0, 6);
     return allPostsSlugLimited.map((slug) => {
       const post = getPostBySlug(slug);
       return post;
