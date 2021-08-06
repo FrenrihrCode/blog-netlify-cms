@@ -12,6 +12,15 @@ export const getAllPostsSlug = () => {
     .sort((a, b) => (a > b ? -1 : 1));
 };
 
+export const getPostsByTag = (tag: string): Post[] => {
+  const allPostsSlug = getAllPostsSlug();
+  const posts = allPostsSlug.map((slug) => {
+    const post = getPostBySlug(slug);
+    return post;
+  });
+  return posts.filter((post) => post.tags.indexOf(tag) !== -1);
+};
+
 export const getPostBySlug = (slug: string): Post => {
   const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");

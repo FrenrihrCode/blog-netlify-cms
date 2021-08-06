@@ -4,31 +4,37 @@ import ReactMarkdown from "react-markdown";
 import { Calendar } from "../../components/icons/Calendar";
 import { Post } from "../../interfaces/post.interface";
 import { getAllPostsSlug, getPostBySlug } from "../../lib/utils/posts";
+import Styles from "../../styles/modules/Post.module.scss";
 
 const SinglePost = ({ post }: { post: Post }) => {
   return (
     <>
-      <div>
-        <Image
-          src={post.thumbnail ? post.thumbnail : "/img/defaultPost.jpg"}
-          alt={post.title}
-          width={900}
-          height={400}
-          layout="fixed"
-        ></Image>
-        <h1>{post.title}</h1>
-        <p>{post.header}</p>
-        <p>
-          <span>
-            <Calendar color={"white"} size={16}></Calendar>
-          </span>
-          {post.date}
-        </p>
-        <div>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+      <div className={Styles.post}>
+        <div className={Styles["post-img"]}>
+          <Image
+            src={post.thumbnail ? post.thumbnail : "/img/defaultPost.jpg"}
+            alt={post.title}
+            objectFit="cover"
+            objectPosition="top"
+            layout="fill"
+          ></Image>
+        </div>
+        <div className={Styles["post-content"]}>
+          <h2 className={Styles["post-content_title"]}>{post.title}</h2>
+          <em className={Styles["post-content_header"]}>{post.header}</em>
+          <div className={Styles["post-content_divider"]} />
+          <div className={Styles["post-content_markdown"]}>
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </div>
+          <p className={Styles["post-content_date"]}>
+            <span>
+              <Calendar color={"white"} size={16}></Calendar>
+            </span>
+            {post.date}
+          </p>
         </div>
       </div>
-      <div>disqus</div>
+      <div className={Styles.comments}>disqus</div>
     </>
   );
 };
