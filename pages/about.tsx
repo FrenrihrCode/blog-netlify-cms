@@ -7,6 +7,7 @@ const About = () => {
   return (
     <div className={Styles.about}>
       <h1 className={Styles["about-title"]}>Sobre mí</h1>
+      <div className="divider" />
       <p>{aboutData.intro}</p>
       <p>{aboutData.desc}</p>
       {aboutData.extra && <p>{aboutData.extra}</p>}

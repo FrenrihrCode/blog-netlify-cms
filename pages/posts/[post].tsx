@@ -22,10 +22,11 @@ const SinglePost = ({ post }: { post: Post }) => {
         <div className={Styles["post-content"]}>
           <h2 className={Styles["post-content_title"]}>{post.title}</h2>
           <em className={Styles["post-content_header"]}>{post.header}</em>
-          <div className={Styles["post-content_divider"]} />
+          <div className="divider" />
           <div className={Styles["post-content_markdown"]}>
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
+          <div className="divider" />
           <p className={Styles["post-content_date"]}>
             <span>
               <Calendar color={"white"} size={16}></Calendar>

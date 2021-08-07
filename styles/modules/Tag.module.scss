@@ -1,0 +1,45 @@
+@import "../theme";
+
+.title {
+  display: flex;
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  &-post {
+    flex: 25%;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: $secondary;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    &_content {
+      padding: 10px 15px;
+    }
+    &_title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &_header {
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 5px;
+    }
+    &_date {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      span {
+        margin-right: 6px;
+      }
+    }
+  }
+}

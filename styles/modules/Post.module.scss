@@ -37,31 +37,6 @@
         margin-right: 10px;
       }
     }
-    &_divider {
-      margin: 0 auto;
-      position: relative;
-      height: 9px;
-      width: 9px;
-      border: transparent;
-      overflow: visible;
-      background-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.5" width="8" height="8" rx="4" fill="white" /></svg>');
-      &::after,
-      &::before {
-        content: " ";
-        position: absolute;
-        height: 9px;
-        width: 9px;
-        border: transparent;
-        overflow: visible;
-        background-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.5" width="8" height="8" rx="4" fill="white" /></svg>');
-      }
-      &::after {
-        left: -18px;
-      }
-      &::before {
-        right: -18px;
-      }
-    }
     &_markdown {
       margin-bottom: 10px;
       h1,
