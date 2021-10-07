@@ -37,7 +37,7 @@ export const Sidebar = ({
           <div className="sidebar-menu_item" key={`${index}-${item.slug}`}>
             <span>{getIcon(item.icon)}</span>
             <Link href={item.slug}>
-              <a><text>{item.name}</text></a>
+              <a>{item.name}</a>
             </Link>
           </div>
         ))}

@@ -42,10 +42,6 @@
       min-height: 30px;
       z-index: 1;
       border-bottom: 2px solid $primary;
-      padding: 13px;
-      >text {
-        display: none;
-      }
     }
   }
 
@@ -73,10 +69,6 @@
         font-weight: 700;
         position: relative;
         a {
-          >text {
-            display: inline-block;
-            margin-left: 20px;
-          }
           &:hover {
             border-color: $accent;
           }
