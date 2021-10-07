@@ -1,8 +1,9 @@
 .sidebar {
-  display: flex;
+  display: none;
   flex-direction: column;
-  width: 320px;
+  width: 160px;
   color: $white;
+  align-items: center;
   &-img {
     border-radius: 50%;
     overflow: hidden;
@@ -11,12 +12,13 @@
     border: 3.5px solid $white;
   }
   &-title {
-    padding: 10px 0;
+    padding: 25px 0;
     font-weight: 700;
     font-size: 1.5em;
+    text-align: center;
   }
-  &-dec {
-    font-weight: 300;
+  &-desc {
+    text-align: center;
     font-size: 1.2em;
   }
   &-menu {
@@ -25,23 +27,59 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
       font-weight: 700;
       position: relative;
-      span {
-        position: absolute;
-        left: 10px;
+    }
+    span {
+      position: absolute;
+      left: 10px;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      line-height: 30px;
+      padding-left: 35px;
+      min-height: 30px;
+      z-index: 1;
+      border-bottom: 2px solid $primary;
+      padding: 13px;
+      >text {
+        display: none;
       }
-      a {
-        display: inline-block;
-        width: 100%;
-        line-height: 30px;
-        padding-left: 35px;
-        min-height: 30px;
-        z-index: 1;
-        border-bottom: 2px solid $primary;
-        &:hover {
-          border-color: $white;
+    }
+  }
+
+  @media (min-width: $laptop){
+    display: flex;
+    width: 320px;
+    &-img {
+      width: 150px;
+      height: 150px;
+      border: 3.5px solid $white;
+    }
+    &-title {
+      font-size: 1.5em;
+    }
+    &-desc {
+      font-weight: 300;
+      font-size: 1.2em;
+    }
+    &-menu {
+      &_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-weight: 700;
+        position: relative;
+        a {
+          >text {
+            display: inline-block;
+            margin-left: 20px;
+          }
+          &:hover {
+            border-color: $accent;
+          }
         }
       }
     }
