@@ -6,15 +6,66 @@
   padding: 20px;
   border-radius: 15px;
   background-color: $secondary;
+  width: 100%;
+
+  &-img{
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    max-width: 150px;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    transition: 0.5s;
+    
+    >div{
+      transform: scaleX(-1);
+    }
+  }
+
+  &-content{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+  }
+
   &-title {
     font-size: 32px;
     font-weight: 700;
     border-bottom: 2px solid $white;
     margin-bottom: 20px;
   }
+
   p {
     margin-bottom: 10px;
     font-weight: 500;
     font-size: 16px;
+  }
+
+  @media (min-width: $tablet){
+    flex-direction: row;
+
+    &-img{
+      border-radius: 20px;
+      opacity: 0.40;
+      max-width: 300px;
+      height: 240px;
+    }
+    &-content{
+      transform: translateX(-10px);
+    }
+  }
+
+  @media (min-width: $pc){
+    &-img{
+      max-width: 450px;
+      height: 360px;
+    }
+    &-content{
+      justify-content: center;
+      transform: translateX(-30px);
+    }
   }
 }
