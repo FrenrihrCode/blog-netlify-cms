@@ -9,8 +9,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   const items = menuItems;
 
   return (
-    <div className="layout">
-      <Header title={owner.alias}></Header>
+    <div className="layout" id="layout">
+      <Header owner={owner} items={items}></Header>
       <main>
         <Sidebar owner={owner} items={items}></Sidebar>
         <div className="content">{children}</div>

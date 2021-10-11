@@ -66,7 +66,7 @@ export default function Home({
                     <span>
                       <Calendar color={"white"} size={16}></Calendar>
                     </span>
-                    <text>{post.date}</text>
+                    {post.date}
                   </p>
                 </div>
               </div>

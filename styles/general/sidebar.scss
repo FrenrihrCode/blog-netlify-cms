@@ -4,6 +4,10 @@
   width: 160px;
   color: $white;
   align-items: center;
+  &.menu {
+    display: flex;
+    width: 100%;
+  }
   &-img {
     border-radius: 50%;
     overflow: hidden;
@@ -20,6 +24,7 @@
   &-desc {
     text-align: center;
     font-size: 1.2em;
+    font-weight: 300;
   }
   &-menu {
     padding: 20px 0;
@@ -45,35 +50,47 @@
     }
   }
 
-  @media (min-width: $laptop){
+  @media (min-width: $tablet) {
     display: flex;
-    width: 320px;
+    width: 100%;
+    max-width: 180px;
     &-img {
-      width: 150px;
-      height: 150px;
-      border: 3.5px solid $white;
+      width: 100px;
+      height: 100px;
     }
     &-title {
       font-size: 1.5em;
     }
     &-desc {
-      font-weight: 300;
-      font-size: 1.2em;
+      font-size: 1em;
     }
     &-menu {
+      align-self: flex-start;
       &_item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
         padding: 10px;
-        font-weight: 700;
-        position: relative;
         a {
           &:hover {
             border-color: $accent;
           }
         }
       }
+    }
+  }
+
+  @media (min-width: $laptop) {
+    max-width: 240px;
+
+    &-img {
+      width: 150px;
+      height: 150px;
+    }
+    &-desc {
+      font-size: 1.25em;
+    }
+    &-title {
+      font-size: 1.75em;
+      padding: 15px 0;
     }
   }
 }

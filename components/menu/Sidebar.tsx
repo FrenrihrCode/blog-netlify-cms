@@ -7,9 +7,11 @@ import { ContactIcon, HomeIcon, PersonIcon } from "../icons";
 export const Sidebar = ({
   items,
   owner,
+  isForMenu = false,
 }: {
   items: MenuItem[];
   owner: Owner;
+  isForMenu?: boolean;
 }) => {
   const getIcon = (icon: "home" | "person" | "contact") => {
     const icons = {
@@ -21,7 +23,7 @@ export const Sidebar = ({
   };
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isForMenu ? "menu" : ""}`}>
       <div className="sidebar-img">
         <Image
           src={owner.img}

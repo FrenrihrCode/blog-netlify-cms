@@ -5,7 +5,6 @@
   width: 100%;
   &-content {
     flex: 1;
-    padding: 0 20px;
     &_title {
       margin-bottom: 20px;
     }
@@ -19,11 +18,11 @@
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 10px;
-      >svg{
-        margin-left: 10px
+      > svg {
+        margin-left: 10px;
       }
     }
-    
+
     &_list {
       display: flex;
       flex-wrap: wrap;
@@ -32,31 +31,30 @@
       list-style: none;
     }
 
-    @media (min-width: $laptop){
+    @media (min-width: $laptop) {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       margin-top: 20px;
     }
-  
-    @media (min-width: $pc){
+
+    @media (min-width: $pc) {
       width: 240px;
       align-items: flex-start;
       &_title {
         flex-direction: row;
-        >svg{
+        > svg {
           margin-right: 10px;
         }
       }
 
-      &_list {        
+      &_list {
         align-items: flex-start;
         flex-direction: row;
       }
     }
-  }  
+  }
 }
-
 
 .post {
   border-radius: 15px;
@@ -92,8 +90,8 @@
     align-items: center;
     font-weight: 300;
     font-size: 16px;
-    >text {
-      margin-left: 10px;
+    > span {
+      margin-right: 10px;
     }
   }
 }
