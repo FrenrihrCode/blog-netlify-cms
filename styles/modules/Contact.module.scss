@@ -1,0 +1,120 @@
+@import "../theme";
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: $secondary;
+  width: 100%;
+  transition: 0.5s;
+
+  >p{
+    margin-bottom: 15px;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+    font-weight: 400;
+
+    &-data {
+      display: flex;
+      flex-direction: column;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          margin-bottom: 10px;
+          border-radius: 5px;
+          padding: 10px;
+          border: 2px solid gray;
+
+          &:hover {
+            border-color: $accent;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: $accent;
+            box-shadow: 2px white;
+
+            &:valid {
+              border: 2px solid green;
+            }
+
+            &:invalid {
+              border: 2px solid red;
+            }
+          }
+        }
+
+        input[type="number"] {
+          -moz-appearance: textfield;
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+
+      @media (min-width: $tablet) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 0 20px;
+      }
+
+      @media (min-width: $laptop){
+        gap: 0 30px;
+      }
+    }
+
+    textarea {
+      margin-bottom: 15px;
+      border-radius: 5px;
+      padding: 10px;
+      border: 2px solid gray;
+      font-family: $font-family-text;
+      resize: vertical;
+
+      &:hover {
+        border-color: $accent;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $accent;
+
+        &:valid {
+          border: 2px solid green;
+        }
+        &:invalid {
+          border: 2px solid red;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      padding: 10px;
+      border-radius: 5px;
+      background-color: $accent;
+      color: $primary;
+      text-decoration: none;
+      border: 2px solid $accent;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      
+      @media (min-width: $laptop){
+        width: 15%;
+        padding: 10px;
+      }
+    }
+  }
+}
+
